@@ -69,22 +69,12 @@
         </li>
         
         <li class="friends_li">
-            <a href="https://github.com/Shen-Yu" target="_blank" class="search-title"
+            <a href="https://github.com/suixinhita" target="_blank" class="search-title"
                 >
                 
                 <img src="/images/github.png">
                 
                 GitHub
-            </a>
-        </li>
-        
-        <li class="friends_li">
-            <a href="https://gitee.com/shen-yu" target="_blank" class="search-title"
-                >
-                
-                <img src="/images/gitee.png">
-                
-                码云
             </a>
         </li>
         
@@ -98,16 +88,6 @@
             </a>
         </li>
         
-        <li class="friends_li">
-            <a href="https://github.com/Shen-Yu/hexo-tag-chart" target="_blank" class="search-title"
-                >
-                
-                <img src="/images/hexo-tag-chart.png">
-                
-                Hexo图表插件
-            </a>
-        </li>
-        
     </ul>
     
 </section>
@@ -117,7 +97,7 @@
       <li>
         Copyrights &copy;
         2024
-        <i class="ri-heart-fill heart_icon"></i> Ceobe
+        <i class="ri-heart-fill heart_icon"></i> suixinhita
       </li>
     </ul>
     <ul>
@@ -347,6 +327,30 @@
     viewer_init()
 </script> 
 <!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
 
 <!-- Katex -->
 
