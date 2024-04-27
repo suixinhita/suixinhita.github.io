@@ -111,7 +111,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1><span id="rl学习-基础">RL学习-基础</span></h1><blockquote>
-<p>学习参考：<a target="_blank" rel="noopener" href="https://hrl.boyuai.com/">动手学强化学习</a></p>
+<p>学习参考：<a target="_blank" rel="noopener" href="https://hrl.boyuai.com/">动手学强化学习</a>和<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1sd4y167NS/">强化学习的数学原理</a></p>
 </blockquote>
 <h2><span id="1-多臂老虎机问题">1 多臂老虎机问题</span></h2><p>问题基于多臂老虎机开展，其各个拉臂之间相互独立，对老虎机进行类封装，方便进行后续探究。</p>
 <h3><span id="11-epsilon-greedy方法">1.1 epsilon-greedy方法</span></h3><p>按照书中内容，这里主要展示的是epsilon逐渐下降的收敛优势。</p>
@@ -130,7 +130,7 @@
 <blockquote>
 <p>概率矩阵&#x2F;概率函数表示状态转移的情况：<br>$P&#x3D;\begin{bmatrix}<br> p_{1,1} &amp; … &amp; p_{1,n}\<br> : &amp;  &amp; :\<br> p_{n,1} &amp; … &amp; p_{n,n}<br>\end{bmatrix}$<br>回报：<br>$G_t&#x3D;R_t+\gamma R_{t+1}+\gamma^2 R_{t+2}+…&#x3D;\sum_{i&#x3D;0}^{N}\gamma^{i} R_{t+i} $<br>价值函数（state value）：<br>$V(s)&#x3D;\mathbb{E} [R_t+\gamma G_{t+1}\mid S_{t}&#x3D;s]&#x3D;\mathbb{E} [R_t+\gamma V(S_{t+1})\mid S_{t}&#x3D;s]$<br>价值函数（action value）：<br>$Q^{\pi }(s,a)&#x3D;r(s,a)+\gamma \sum _{s’\in S}P^{\pi}(s’|s,a)V^{\pi}(s’)$</p>
 </blockquote>
-<h3><span id="21-一个例子">2.1 一个例子</span></h3><p><img src="/RL%E5%AD%A6%E4%B9%A0-1/example-1.png"><br>可以简单地给出一个路线，求得其回报，也可以求其价值函数。</p>
+<h3><span id="21-一个例子">2.1 一个例子</span></h3><p><img src="/.com//example-1.png"><br>可以简单地给出一个路线，求得其回报，也可以求其价值函数。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line">P=[</span><br><span class="line">    [<span class="number">0.9</span>,<span class="number">0.1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">    [<span class="number">0.5</span>,<span class="number">0</span>,<span class="number">0.5</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">    [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.6</span>,<span class="number">0</span>,<span class="number">0.4</span>],</span><br><span class="line">    [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.3</span>,<span class="number">0.7</span>],</span><br><span class="line">    [<span class="number">0</span>,<span class="number">0.2</span>,<span class="number">0.3</span>,<span class="number">0.5</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">    [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">]</span><br><span class="line">P=np.array(P)</span><br><span class="line">rewards=[-<span class="number">1</span>,-<span class="number">2</span>,-<span class="number">2</span>,<span class="number">10</span>,<span class="number">1</span>,<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cal_return</span>(<span class="params">chain,gammar</span>):</span><br><span class="line">    total_reward=<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(chain)-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>):</span><br><span class="line">        <span class="built_in">print</span>(i,chain[i])</span><br><span class="line">        total_reward=gammar*total_reward+rewards[chain[i]-<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> total_reward</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cal_state_value_simple</span>(<span class="params">gammar</span>):</span><br><span class="line">    I=np.eye(<span class="number">6</span>,<span class="number">6</span>)</span><br><span class="line">    reward_=(np.array(rewards)).reshape((-<span class="number">1</span>,<span class="number">1</span>))</span><br><span class="line">    <span class="built_in">print</span>(I)</span><br><span class="line">    tmp=np.linalg.inv((I-gammar*P))</span><br><span class="line">    <span class="built_in">print</span>(tmp)</span><br><span class="line">    value_s=np.dot(tmp,reward_)</span><br><span class="line">    <span class="built_in">print</span>(np.shape(value_s))</span><br><span class="line">    <span class="keyword">return</span> value_s</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Chain=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>]</span><br><span class="line"><span class="comment">#print(cal_return(Chain,0.5))</span></span><br><span class="line"><span class="built_in">print</span>(cal_state_value_simple(<span class="number">0.5</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>此外，对于这部分的一些基础知识推导，参照《强化学习的数学原理》即可。</p>
@@ -233,20 +233,15 @@
    
   <nav class="article-nav">
     
-      <a href="/2024/04/22/RL%E5%AD%A6%E4%B9%A0-%E5%9F%BA%E7%A1%80/" class="article-nav-link">
+      <a href="/2024/04/27/Python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            RL学习-基础
+            Python基础学习
           
         </div>
       </a>
     
-    
-      <a href="/2024/01/30/RL-gym%E5%AD%A6%E4%B9%A0/" class="article-nav-link">
-        <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">RL-gym学习</div>
-      </a>
     
   </nav>
 

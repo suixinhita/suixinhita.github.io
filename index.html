@@ -143,7 +143,7 @@
     
     
     <article
-  id="post-RL学习-基础"
+  id="post-RL学习-2"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -154,8 +154,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2024/04/22/RL%E5%AD%A6%E4%B9%A0-%E5%9F%BA%E7%A1%80/"
-    >RL学习-基础</a> 
+  <a class="article-title" href="/2024/04/27/RL%E5%AD%A6%E4%B9%A0-2/"
+    >RL学习-2</a> 
 </h2>
  
 
@@ -163,14 +163,67 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2024/04/22/RL%E5%AD%A6%E4%B9%A0-%E5%9F%BA%E7%A1%80/" class="article-date">
-  <time datetime="2024-04-22T10:14:41.000Z" itemprop="datePublished">2024-04-22</time>
+      <a href="/2024/04/27/RL%E5%AD%A6%E4%B9%A0-2/" class="article-date">
+  <time datetime="2024-04-27T07:47:59.000Z" itemprop="datePublished">2024-04-27</time>
 </a>    
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
    
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Python基础学习"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/04/27/Python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"
+    >Python基础学习</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/27/Python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2024-04-27T07:38:12.000Z" itemprop="datePublished">2024-04-27</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1><span id="python-基础学习">Python 基础学习</span></h1><p>这里的链接均无授权，如有问题邮件告知我会删除（。</p>
+<h2><span id="1-数据结构">1 数据结构</span></h2><h3><span id="11-队列">1.1 队列</span></h3><h4><span id="111-双向队列">1.1.1 双向队列</span></h4><p>使用collection模块下的deque:<a target="_blank" rel="noopener" href="https://blog.csdn.net/chl183/article/details/106958004">教程指路：CSDN</a></p>
+<h2><span id="5-常用函数">5 常用函数</span></h2><ol>
+<li>zip: 函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。<a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-func-zip.html">教程指路：基础教程</a></li>
+<li>random库，可以用于单次或重复随机抽样，也可以用于生成随机数等。<a target="_blank" rel="noopener" href="https://www.runoob.com/python3/python-random.html">教程指路：基础教程</a></li>
+</ol>
+ 
       <!-- reward -->
       
     </div>
@@ -222,7 +275,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1><span id="rl学习-基础">RL学习-基础</span></h1><blockquote>
-<p>学习参考：<a target="_blank" rel="noopener" href="https://hrl.boyuai.com/">动手学强化学习</a></p>
+<p>学习参考：<a target="_blank" rel="noopener" href="https://hrl.boyuai.com/">动手学强化学习</a>和<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1sd4y167NS/">强化学习的数学原理</a></p>
 </blockquote>
 <h2><span id="1-多臂老虎机问题">1 多臂老虎机问题</span></h2><p>问题基于多臂老虎机开展，其各个拉臂之间相互独立，对老虎机进行类封装，方便进行后续探究。</p>
 <h3><span id="11-epsilon-greedy方法">1.1 epsilon-greedy方法</span></h3><p>按照书中内容，这里主要展示的是epsilon逐渐下降的收敛优势。</p>
@@ -241,7 +294,7 @@
 <blockquote>
 <p>概率矩阵&#x2F;概率函数表示状态转移的情况：<br>$P&#x3D;\begin{bmatrix}<br> p_{1,1} &amp; … &amp; p_{1,n}\<br> : &amp;  &amp; :\<br> p_{n,1} &amp; … &amp; p_{n,n}<br>\end{bmatrix}$<br>回报：<br>$G_t&#x3D;R_t+\gamma R_{t+1}+\gamma^2 R_{t+2}+…&#x3D;\sum_{i&#x3D;0}^{N}\gamma^{i} R_{t+i} $<br>价值函数（state value）：<br>$V(s)&#x3D;\mathbb{E} [R_t+\gamma G_{t+1}\mid S_{t}&#x3D;s]&#x3D;\mathbb{E} [R_t+\gamma V(S_{t+1})\mid S_{t}&#x3D;s]$<br>价值函数（action value）：<br>$Q^{\pi }(s,a)&#x3D;r(s,a)+\gamma \sum _{s’\in S}P^{\pi}(s’|s,a)V^{\pi}(s’)$</p>
 </blockquote>
-<h3><span id="21-一个例子">2.1 一个例子</span></h3><p><img src="/RL%E5%AD%A6%E4%B9%A0-1/example-1.png"><br>可以简单地给出一个路线，求得其回报，也可以求其价值函数。</p>
+<h3><span id="21-一个例子">2.1 一个例子</span></h3><p><img src="/.com//example-1.png"><br>可以简单地给出一个路线，求得其回报，也可以求其价值函数。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line">P=[</span><br><span class="line">    [<span class="number">0.9</span>,<span class="number">0.1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">    [<span class="number">0.5</span>,<span class="number">0</span>,<span class="number">0.5</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">    [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.6</span>,<span class="number">0</span>,<span class="number">0.4</span>],</span><br><span class="line">    [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.3</span>,<span class="number">0.7</span>],</span><br><span class="line">    [<span class="number">0</span>,<span class="number">0.2</span>,<span class="number">0.3</span>,<span class="number">0.5</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">    [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">]</span><br><span class="line">P=np.array(P)</span><br><span class="line">rewards=[-<span class="number">1</span>,-<span class="number">2</span>,-<span class="number">2</span>,<span class="number">10</span>,<span class="number">1</span>,<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cal_return</span>(<span class="params">chain,gammar</span>):</span><br><span class="line">    total_reward=<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(chain)-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>):</span><br><span class="line">        <span class="built_in">print</span>(i,chain[i])</span><br><span class="line">        total_reward=gammar*total_reward+rewards[chain[i]-<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> total_reward</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cal_state_value_simple</span>(<span class="params">gammar</span>):</span><br><span class="line">    I=np.eye(<span class="number">6</span>,<span class="number">6</span>)</span><br><span class="line">    reward_=(np.array(rewards)).reshape((-<span class="number">1</span>,<span class="number">1</span>))</span><br><span class="line">    <span class="built_in">print</span>(I)</span><br><span class="line">    tmp=np.linalg.inv((I-gammar*P))</span><br><span class="line">    <span class="built_in">print</span>(tmp)</span><br><span class="line">    value_s=np.dot(tmp,reward_)</span><br><span class="line">    <span class="built_in">print</span>(np.shape(value_s))</span><br><span class="line">    <span class="keyword">return</span> value_s</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Chain=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>]</span><br><span class="line"><span class="comment">#print(cal_return(Chain,0.5))</span></span><br><span class="line"><span class="built_in">print</span>(cal_state_value_simple(<span class="number">0.5</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>此外，对于这部分的一些基础知识推导，参照《强化学习的数学原理》即可。</p>
@@ -278,63 +331,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RL/" rel="tag">RL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-RL-gym学习"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/01/30/RL-gym%E5%AD%A6%E4%B9%A0/"
-    >RL-gym学习</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/01/30/RL-gym%E5%AD%A6%E4%B9%A0/" class="article-date">
-  <time datetime="2024-01-30T06:45:24.000Z" itemprop="datePublished">2024-01-30</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/RL/">RL</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1><span id="rl-gym学习">RL-gym学习</span></h1><h2><span id="gym简介">gym简介</span></h2><blockquote>
-<p>gym是openAI开发的强化学习库，通过定义状态库、动作库等对强化学习中的关键部分进行了定义，以方便快速对其进行调用。<br>其重点主要在于简化了使用各种方法迭代的内部问题。</p>
-</blockquote>
-<p><em>后续可能不会使用gym，有可能还是滚回去用matlab T T</em></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RL/" rel="tag">RL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gym/" rel="tag">gym</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
 
     </footer>
   </div>
